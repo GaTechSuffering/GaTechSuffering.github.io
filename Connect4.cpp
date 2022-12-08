@@ -52,6 +52,8 @@ bool victoryCond() {
                 if(Rcount == 4) {
                     return true;
                 }
+            } else {
+                Rcount = 0;
             }
         }
         Rcount = 0;
@@ -69,6 +71,8 @@ bool victoryCond() {
                 if(Ycount == 4) {
                     return true;
                 }
+            } else {
+                Ycount = 0;
             }
         }
         Ycount = 0;
@@ -90,6 +94,7 @@ bool victoryCond() {
                 Rcount = 0;
             }
         }
+        Rcount = 0;
     }
 
     //Resets values for next check
@@ -115,8 +120,8 @@ bool victoryCond() {
     Rcount = 0;
     
     //Forward Diagonals
-    int row = ROW-1;
-    int col = COL-1;
+    int row = ROW;
+    int col = COL;
     while(row >= 0 && col >= 0) {
         if(board[row][col] == 'R') {
             Rcount++;
@@ -130,14 +135,10 @@ bool victoryCond() {
         col--;
     }
 
-    //Resets values for next check
-    Ycount = 0;
-    Rcount = 0;
-    
     //Resets variables
     row = 0;
     col = 0;
-    while(row < ROW && col < COL) {
+    while(row <= ROW && col <= COL) {
         if(board[row][col] == 'R') {
             Rcount++;
             if(Rcount == 4) {
@@ -156,8 +157,8 @@ bool victoryCond() {
 
     //Backward Diagonals
     row = 0;
-    col = COL-1;
-    while (row < ROW && col >= 0) {
+    col = COL;
+    while (row <= ROW && col >= 0) {
         if (board[row][col] == 'R') {
             Rcount++;
             if (Rcount == 4) {
@@ -177,7 +178,7 @@ bool victoryCond() {
     //Resets variables
     row = -1;
     col = COL-1;
-    while (row < ROW && col >= 0) {
+    while (row <= ROW && col >= 0) {
         if (board[row][col] == 'R') {
             Rcount++;
             if (Rcount == 4) {
@@ -196,8 +197,8 @@ bool victoryCond() {
 
     //Player 2
     //Forward Diagonals
-    row = ROW-1;
-    col = COL-1;
+    row = ROW;
+    col = COL;
     while(row >= 0 && col >= 0) {
         if(board[row][col] == 'Y') {
             Ycount++;
@@ -211,14 +212,10 @@ bool victoryCond() {
         col--;
     }
 
-    //Resets values for next check
-    Ycount = 0;
-    Rcount = 0;
-    
     //Resets variables
     row = 0;
     col = 0;
-    while(row < ROW && col < COL) {
+    while(row <= ROW && col <= COL) {
         if(board[row][col] == 'Y') {
             Ycount++;
             if(Ycount == 4) {
@@ -237,8 +234,8 @@ bool victoryCond() {
 
     //Backwards Diagonal
     row = 0;
-    col = COL-1;
-    while (row < ROW && col >= 0) {
+    col = COL;
+    while (row <= ROW && col >= 0) {
         if (board[row][col] == 'W') {
             Ycount++;
             if (Ycount == 4) {
@@ -257,8 +254,8 @@ bool victoryCond() {
 
     //Resets variables
     row = -1;
-    col = COL-1;
-    while (row < ROW && col >= 0) {
+    col = COL;
+    while (row <= ROW && col >= 0) {
         if (board[row][col] == 'W') {
             Ycount++;
             if(Ycount == 4) {
