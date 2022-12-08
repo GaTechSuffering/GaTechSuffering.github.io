@@ -1,1 +1,283 @@
-"Hello World" 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Arcade Cabinet </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:url" content="GaTechSuffering.github.io/ArcadeCabinet" />
+    <meta property="og:title" content="Arcade Cabinet"/>
+    <meta property="og:description" content="ECE 4180 Final Project Christine Ta, Jon Walters"/>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+        <!-- navigation bar -->
+        <div class="bar">
+
+          <div class="nav-right">         
+              <a href="#Home">HOME</a>
+              <a href="#Idea">PROJECT IDEA</a>
+              <a href="#Instr">IMPLEMENTATION</a>
+              <a href="#Parts">PARTS LIST</a>
+              <a href="#Hardware-code">HARDWARE/SOFTWARE</a> 
+              <a href="#Slides">PRESENTATION AND DEMOS</a>  
+          </div>
+              
+        </div>
+        <a id="Home"></a>
+
+    <div class="Home">
+      
+        <div id="welcome">
+            &nbsp; <span id="fancy"></span>
+        </div>
+        <span id="fancy"></span>
+
+        <!-- script for adding/deleting text -->
+        <script src = "index.js"></script>
+
+        <br><br>
+        <div id="hiya">
+          ECE 4180 Final Project
+            <br>
+            Christine Ta, Jon Walters
+        </div>
+       
+    </div>
+
+<div class="all">
+  
+  <a id="Idea"></a>
+    <div class="Idea">
+      <br>
+        <div id="header">
+          
+            Project Idea
+            <hr style="border: .5px solid white;" />
+        </div>
+        <br><br>
+        <div id="about-info">
+
+          <h class="disclaimer">
+
+          </h>
+            
+            <br><br>
+            This project was designed to be similar to that of an arcade cabinet that one would naturally see in an arcade.
+            This arcade cabinet was designed with retro-styled games in mind, games that a lot of people have grown up with, 
+            or games that have that 'feel good' vibe to them such as Pac-Man, Snake and Donkey Kong. 
+            Since different people have different tastes in games, this project was aimed towards more simplistic games that
+            children and adults alike can appreciate.
+            
+            <div id="logo">
+              <img src="ADD"/>
+            </div>
+            
+            <br><br>
+            With that in mind, there are three simple games of which were created and then integrated into one single system for
+            ease-of-access: 
+            <br>  
+            <br>
+            Tic-Tac-Toe 
+            <br> 
+            Connect 4 
+            <br> 
+            Archery
+
+            <br><br> 
+            
+        </div>
+    </div>
+
+    <a id="Instr"></a>
+    <div class="Instr">
+      <br>
+        <div id="header">
+            Implementation
+            <hr style="border: .5px solid white;" />
+        </div>
+
+        <div id="intro">
+          <br><br>
+          <p>
+            ADD
+          </p>
+          <br>
+          
+        </div>     
+
+        <div id="intro">
+            <br><br>
+              <p><img src="ADD" width=25% />
+                <br>
+                1. 
+                <br>
+                2. 
+                <br>
+                3. 
+                <br>
+                4. 
+                <br>
+                5. 
+                <br>
+              </p>
+        </div> 
+         
+        <br><br><br>
+        
+    </div>
+
+    <a id="Parts"></a>
+    <div class="Parts">
+      <br>
+        <div id="header">
+            Parts List
+            <hr style="border: .5px solid white;" />
+        </div>
+
+        <div id="intro">
+          <br><br>
+          <p>
+            <br>
+              1. <a href="https://os.mbed.com/platforms/" target="_blank">mBed</a>
+              <br>
+              2. <a href="https://os.mbed.com/users/4180_1/notebook/ulcd-144-g2-128-by-128-color-lcd/" target="_blank">LCD Display: uLCD-144G2</a>
+              <br>
+              3. <a href="https://os.mbed.com/components/MMA8452Q-Triple-Axis-Accelerometer/" target="_blank">Accelerometre: MPL3115A2</a>
+              <br>
+              4. <a href=" https://os.mbed.com/users/4180_1/notebook/mpr121-i2c-capacitive-touch-sensor/" target="_blank">Capacitive Touchpad x2: MPR121 I2C</a>
+              <br>
+              5. <a href="https://os.mbed.com/components/Adafruit-Bluefruit-LE-UART-Friend/" target="_blank">Adafruit Bluefruit LE UART Friend</a>
+              <br>
+              6. <a href="https://os.mbed.com/users/4180_1/notebook/tpa2005d1-class-d-audio-amp/" target="_blank">Class D Audio Amplifier TPA2005D1</a>
+              <br>
+              7. <a href=https://os.mbed.com/users/4180_1/notebook/using-a-speaker-for-audio-output/" target="_blank">Speaker</a>
+              <br>
+              8. PC/laptop/computer
+              <br>
+              9. Standard breadboard, wires, mBed cable and 5V Power Supply
+              <br>
+              10. Standard SPST switches/pushbuttons
+              <br>
+              11. Mobile device with Bluetooth
+              <br>
+          </p>
+          <br>
+          
+        </div>
+
+        <div id="intro">
+            <br><br>
+              <p><img src="ADD" width=25% />
+                <br>
+                1. Wire all parts to breadboard (refer to Hardware/Software section).
+                <br>
+                2. Download mBed C code from Github link and integrate onto mBed (refer to Hardware/Software section).
+                <br>
+                3. Hook up mBed to a computer for power and Class D Audio Amp to 5V external power.
+                <br>
+                4. Connect AdaFruit Bluefruit to Bluefruit App (can be downloaded in App stores).
+                <br>
+                5. Enjoy!
+                <br>
+              </p>
+        </div> 
+        
+        <br><br><br>
+
+    </div>
+
+    <a id="Hardware-code"></a>
+    <div class="Hardware">
+      <br>
+        <div id="header">
+            Hardware Setup and Software Integration
+            <hr style="border: .5px solid white;" />
+        </div>
+
+        <div id="intro">
+          <br><br>
+          <p>
+            Hardware Setup:
+            <br><br>
+            <div id="logo">
+              <img src="ADD"/>
+            </div>
+            <br><br>
+            <br><br><br><br>
+            
+          </p>
+          <br>
+
+          <br><br>
+          <p>
+            Our code contains accelerometre data (gravity, acceleration), capacitive touchpad input using interrupts, 
+            and audio output using Class D Audio Amp and standard speaker for additional immersion.
+            <br><br>
+            It also contains software that integrates our uLCD, which will display all the games, and Adafruit Bluefruit,
+            which will be used to select from the game screen.
+            <br><br>
+            Within the Github, there are three kinds of files:
+            <br><br>
+            TicTacToe.cpp: Standard TicTacToe written in C++. Can be run without mBed.
+            <br>
+            Connect4.cpp: Standard Connect 4 written in C++. Can be run without mBed.
+            <br>
+            main.cpp: Integrated mBed code written in C++. This is the file you need to download in order to run on mBed!
+            <br><br>
+            <div id="logo">
+              <img src="ADD"/>
+            </div>
+
+             <br><br><br><br><br><br><br><br><br><br><br><br>
+
+             Code stubs on <a href="https://github.com/GaTechSuffering/GaTechSuffering.github.io" target="_blank">Github</a>
+
+          </p>
+        </div>
+
+        <br><br><br>
+        
+    </div>
+
+    <a id="Slides"></a>
+    <div class="Slides">
+      <br>
+        <div id="header">
+            Presentation and Demos
+            <hr style="border: .5px solid white;" />
+        </div>
+          Here is a link to our presentation:
+          <br>
+          <a href= "ADD" target="_blank">PowerPoint Presentation</a>
+          <br><br>
+          Here is a link to our demo video:
+          <br>
+          <a href= "ADD" target="_blank">Go to YouTube</a>
+          <br>
+
+          <div id="header">
+            <hr style="border: .5px solid white;" />
+          </div>
+
+         </div>
+    </div>
+</div>
+
+<div class="bottom">
+  <p>Made with love by us using HTML, CSS, and Javascript. 
+      View our source code on Github
+      <a href="https://github.com/teamceleastial/teamceleastial.github.io" target="_blank">here.</a>
+    </p>
+
+</div>
+
+</body>
+
+</html>
