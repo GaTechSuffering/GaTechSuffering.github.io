@@ -18,6 +18,7 @@ using namespace std;
 char board[ROW][COL];
 int choiceP1, choiceP2;
 bool player1Turn = true;
+bool drawCon = false;
 
 //Initialise board
 void InitialiseBoard() {
@@ -55,6 +56,11 @@ bool victoryCond() {
         }
         Rcount = 0;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
+
     //Player 2
     for(int i = 0; i < ROW; i++) {
         for(int j = 0; j < COL; j++) {
@@ -80,10 +86,16 @@ bool victoryCond() {
                 if(Rcount == 4) {
                     return true;
                 }
+            } else {
+                Rcount = 0;
             }
         }
-        Rcount = 0;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
+
     for(int j = 0; j < COL; j++) {
         for(int i = 0; i < ROW; i++) {
             if(board[i][j] == 'Y') {
@@ -91,6 +103,8 @@ bool victoryCond() {
                 if(Ycount == 4) {
                     return true;
                 }
+            } else {
+                Ycount = 0;
             }
         }
         Ycount = 0;
@@ -101,8 +115,8 @@ bool victoryCond() {
     Rcount = 0;
     
     //Forward Diagonals
-    int row = ROW;
-    int col = COL;
+    int row = ROW-1;
+    int col = COL-1;
     while(row >= 0 && col >= 0) {
         if(board[row][col] == 'R') {
             Rcount++;
@@ -115,11 +129,15 @@ bool victoryCond() {
         row--;
         col--;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
     
     //Resets variables
     row = 0;
     col = 0;
-    while(row <= ROW && col <= COL) {
+    while(row < ROW && col < COL) {
         if(board[row][col] == 'R') {
             Rcount++;
             if(Rcount == 4) {
@@ -131,11 +149,15 @@ bool victoryCond() {
         row++;
         col++;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
 
     //Backward Diagonals
     row = 0;
-    col = COL;
-    while (row <= ROW && col >= 0) {
+    col = COL-1;
+    while (row < ROW && col >= 0) {
         if (board[row][col] == 'R') {
             Rcount++;
             if (Rcount == 4) {
@@ -147,11 +169,15 @@ bool victoryCond() {
         row++;
         col--;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
 
     //Resets variables
     row = -1;
-    col = COL;
-    while (row <= ROW && col >= 0) {
+    col = COL-1;
+    while (row < ROW && col >= 0) {
         if (board[row][col] == 'R') {
             Rcount++;
             if (Rcount == 4) {
@@ -164,10 +190,14 @@ bool victoryCond() {
         col--;
     }
 
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
+
     //Player 2
     //Forward Diagonals
-    int row = ROW;
-    int col = COL;
+    row = ROW-1;
+    col = COL-1;
     while(row >= 0 && col >= 0) {
         if(board[row][col] == 'Y') {
             Ycount++;
@@ -180,11 +210,15 @@ bool victoryCond() {
         row--;
         col--;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
     
     //Resets variables
     row = 0;
     col = 0;
-    while(row <= ROW && col <= COL) {
+    while(row < ROW && col < COL) {
         if(board[row][col] == 'Y') {
             Ycount++;
             if(Ycount == 4) {
@@ -197,10 +231,14 @@ bool victoryCond() {
         col++;
     }
 
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
+
     //Backwards Diagonal
     row = 0;
-    col = COL;
-    while (row <= ROW && col >= 0) {
+    col = COL-1;
+    while (row < ROW && col >= 0) {
         if (board[row][col] == 'W') {
             Ycount++;
             if (Ycount == 4) {
@@ -212,10 +250,15 @@ bool victoryCond() {
         row++;
         col--;
     }
+
+    //Resets values for next check
+    Ycount = 0;
+    Rcount = 0;
+
     //Resets variables
     row = -1;
-    col = COL;
-    while (row <= ROW && col >= 0) {
+    col = COL-1;
+    while (row < ROW && col >= 0) {
         if (board[row][col] == 'W') {
             Ycount++;
             if(Ycount == 4) {
@@ -226,6 +269,20 @@ bool victoryCond() {
         }
         row++;
         col--;
+    }
+
+    //For when there is a draw
+    int fillBoard = 0;
+    for(int i = 0; i < ROW; i++) {
+        for(int j = 0; j < COL; j++) {
+            if(board[i][j] == 'R' || board[i][j] == 'Y') {
+                fillBoard++;
+            }
+        }
+    }
+    if(fillBoard == ROW*COL) {
+        drawCon = true;
+        return true;
     }
 
     return false;
@@ -241,6 +298,10 @@ void updateBoard(int choice) {
             if(board[i+1][choice] != 'x') {
                 board[i][choice] = 'R';
                 bool win = victoryCond();
+                if(drawCon == true) {
+                    cout << "This is a draw!" << endl;
+                    return;
+                }
                 if(win == false) {
                     player1Turn = false;
                 }
@@ -256,6 +317,10 @@ void updateBoard(int choice) {
             if(board[i+1][choice] != 'x') {
                 board[i][choice] = 'Y';
                 bool win = victoryCond();
+                if(drawCon == true) {
+                    cout << "This is a draw!" << endl;
+                    return;
+                }
                 if(win == false) {
                     player1Turn = true;
                 }
@@ -309,9 +374,9 @@ int main() {
         displayBoard();
     }
 
-    if(player1Turn == true) {
+    if(player1Turn == true && drawCon == false) {
         cout << "Player 1 wins" << endl;
-    } else if(player1Turn == false) {
+    } else if(player1Turn == false && drawCon == false) {
         cout << "Player 2 wins" << endl;
     } else {
         cout << "It's a draw!" << endl;
