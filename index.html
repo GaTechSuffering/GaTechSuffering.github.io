@@ -116,15 +116,17 @@
             <br><br>
               <p><img src="ADD" width=25% />
                 <br>
+                <br>
                 1. To set up this arcade cabinet, please first download the code and give it a read to understand how it works.
                    This will make things easier if the circuit needs to be debugged
+                <br>
                 <br>
                 2. Hardware and pinouts are assigned as seen below.
                    For additional pins on hardware, such as power and GND pins, please refer to embed wiki pages.
                    But if you dont want to, all power pins, except on speaker and class D amp, are connected to VCC = 3.3V on the mbed,
                    all GND are connected to GND on the mbed.
-                   
-                  
+                <br>
+                <br>
                    MPR 121 Capacitive touch pad 1 (p9,p10) 
                    ADD_VSS
                    IRQ 1 (p26)
@@ -145,14 +147,17 @@
                    560 Ω Voltage Dividing Speaker Resistor 
                    LPC1768 MCU
                 <br>
+                <br>
                 3. The 2x 4.7 kΩ pull up resistors are connected to p9 and p10 in parallel to the 3.3 rail, and are, as described, pull ups.
                    The 560Ω Resistor is a voltage divider, and is put across the output + and - on the class D amplifer to reduce voltage output.
                        - This reduceds output sound of the speaker.
+                <br>
                 <br>
                 4. The speaker and class D amp follow our pins outs, with the additional pins and pathings following the mbed page.
                    The only change that is required is to change the input voltage from the MCU (Vu of 5V) to an external DC source of 5V)
                    The MCU, can not handle all the output power draw from the components, so out sourcing the power for the speaker is required
                        The Class D amp pulls the most power relative to other hardware components
+                <br>
                 <br>
                 5. It can be seen that 3 components ( touch sensor 1, touch sensor 2, and accelerometer) all use pin 9 and 10 on the MCU for their
                    SDA and SCL lines. This works because the I2C port has 255 addresses on the buss, but to use these, you neeed to assign each
@@ -167,7 +172,9 @@
                    If the MMA8452 accelerometer has the same issues with using an already used address, do the same steps but for the MMA8452, and
                    it will also work on p9 and p10.
                 <br>
+                <br>
                 6. Have fun with your 2 player arcade cabinet!
+                <br>
                 <br>
               </p>
         </div> 
